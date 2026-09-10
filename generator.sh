@@ -370,13 +370,15 @@ EOF
             if [[ -n "$NAME" ]]; then
 
                 if [[ "$ICON" == img:* ]]; then
-                    ICON_MARKUP="<img class=\"lesson-emoji-img\" src=\"../${ICON#img:}\" alt=\"\">"
+                    ICON_PATH="${ICON#img:}"
+                    ICON_B64="$(base64 < "$ICON_PATH" | tr -d '\n')"
+                    ICON_MARKUP="<img class=\"lesson-emoji-img\" src=\"data:image/svg+xml;base64,${ICON_B64}\" alt=\"\">"
                 else
                     ICON_MARKUP="$ICON"
                 fi
 
                 cat <<EOF
-<td class="lesson"><div class="lesson-content"><span class="lesson-emoji">${ICON}</span><span class="lesson-name">${NAME}</span></div></td>
+<td class="lesson"><div class="lesson-content"><span class="lesson-emoji">${ICON_MARKUP}</span><span class="lesson-name">${NAME}</span></div></td>
 EOF
 
             else
