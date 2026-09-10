@@ -325,7 +325,7 @@ fi
 
 {
     cat <<EOF
-<div class="lesson-plan"><link rel="stylesheet" href="styles.css"><img id="page-background" src="${BACKGROUND_SRC}" alt="">
+<div class="lesson-plan"><link rel="stylesheet" href="../styles.css"><img id="page-background" src="../${BACKGROUND_SRC}" alt="">
 <h1 class="plan-title">${TITLE}</h1>
 
 <table class="plan-table">
