@@ -1,0 +1,35 @@
+Plan lekcji klasy XYZ
+---
+Pon. 
+1. Język polski, :pen:
+2. Religia, :christian-cross:
+3. Język angielski, :union-jack:
+4. Matematyka, :book:
+ 
+---
+Wt.
+2. Plastyka, :palette:
+3. Przyroda, :leaf:
+4. W-F, :basketball:
+5. Informatyka, :computer:
+6. Muzyka, :notes:
+7. Edukacja społeczna, :handshake:
+
+---
+Śr.
+
+---
+Czw.
+
+---
+Pt.
+
+***
+
+1. 08:10 - 08:55
+2. 09:05 - 09:50
+3. 10:00 - 10:45
+4. 11:00 - 11:45
+5. 11:50 - 12:35
+6. 12:50 - 13:35
+7. 13:40 - 14:25

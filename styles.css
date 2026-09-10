@@ -1,0 +1,120 @@
+@page {
+    size: A4 landscape;
+    margin: 8mm;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#page-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+    z-index: -1;
+    pointer-events: none;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15pt;
+}
+
+.lesson-plan {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.plan-title {
+    text-align: center;
+    font: bold;
+    font-size: 30pt;
+    font-family: 'Brush Script MT', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0 0 8mm 0;
+}
+
+.plan-table {
+    width: 100%;
+    table-layout: fixed;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.plan-table th,
+.plan-table td {
+    border: 2px solid #444;
+    padding: 2mm 1.5mm;
+    vertical-align: middle;
+    border-radius: 10px;
+    border-style: outset;
+}
+
+.plan-table thead th {
+    text-align: center;
+    font-size: 10pt;
+    font-weight: bold;
+    height: 10mm;
+}
+
+.plan-table tbody tr {
+    height: 22mm;
+}
+
+.lesson-number {
+    width: 6mm;
+    text-align: center;
+    font-weight: bold;
+}
+
+.lesson-time {
+    width: 24mm;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 12pt;
+}
+
+.lesson {
+    text-align: center;
+}
+
+.lesson-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 16mm;
+}
+
+.lesson-emoji {
+    width: 10%;
+    min-width: 9mm;
+    text-align: center;
+    font-size: 16pt;
+    flex-shrink: 0;
+    padding-left: 0;
+    margin-right: 1mm;
+}
+
+.lesson-name {
+    width: 90%;
+    text-align: left;
+    font-family: 'Marker Felt', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 14pt;
+    line-height: 1.15;
+    overflow-wrap: break-word;
+}
+
+.empty {
+    background: transparent;
+}
+
+@media print {
+    body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
