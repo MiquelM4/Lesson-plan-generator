@@ -54,7 +54,7 @@ while true; do
     esac
 done
 
-BACKGROUND_SRC="./assets/${SEASON}.bg.png"
+BACKGROUND_SRC="./assets/backgrounds/${SEASON}.bg.png"
 if [[ ! -f "${BACKGROUND_SRC}" ]]; then
     echo "Warning: background asset not found: ${BACKGROUND_SRC}"
     # Fallback to the original default image name so behavior remains working
@@ -368,6 +368,12 @@ EOF
             fi
 
             if [[ -n "$NAME" ]]; then
+
+                if [[ "$ICON" == img:* ]]; then
+                    ICON_MARKUP="<img class=\"lesson-emoji-img\" src=\"../${ICON#img:}\" alt=\"\">"
+                else
+                    ICON_MARKUP="$ICON"
+                fi
 
                 cat <<EOF
 <td class="lesson"><div class="lesson-content"><span class="lesson-emoji">${ICON}</span><span class="lesson-name">${NAME}</span></div></td>
