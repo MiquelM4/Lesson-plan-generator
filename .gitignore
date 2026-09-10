@@ -1,0 +1,4 @@
+*.plan.md
+*.plan.html
+*.plan.txt
+!example.plan.txt

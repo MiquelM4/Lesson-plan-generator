@@ -27,7 +27,39 @@ if [[ ! -f "$INPUT" ]]; then
     exit 1
 fi
 
-OUTPUT="${INPUT%.*}.md"
+# Derive output filename from input basename (strip any path, remove final extension)
+NAME="$(basename "$INPUT")"
+NAME="${NAME%.*}"
+OUTPUT="./outputs/${NAME}.md"
+
+# Ensure output directory exists
+mkdir -p "./outputs"
+
+# Ask user which season background to use
+# Options: 1=Spring, 2=Summer, 3=Autumn, 4=Winter
+SEASON=""
+while true; do
+    echo "Choose background season:"
+    echo "  [1] Spring"
+    echo "  [2] Summer"
+    echo "  [3] Autumn"
+    echo "  [4] Winter"
+    read -rp "Selection [1-4]: " SELECTION
+    case "${SELECTION}" in
+        1) SEASON="spring"; break ;;
+        2) SEASON="summer"; break ;;
+        3) SEASON="autumn"; break ;;
+        4) SEASON="winter"; break ;;
+        *) echo "Please enter 1, 2, 3 or 4." ;;
+    esac
+done
+
+BACKGROUND_SRC="./assets/${SEASON}.bg.png"
+if [[ ! -f "${BACKGROUND_SRC}" ]]; then
+    echo "Warning: background asset not found: ${BACKGROUND_SRC}"
+    # Fallback to the original default image name so behavior remains working
+    BACKGROUND_SRC="background.png"
+fi
 
 # ------------------------------------------------------------
 # Emoji aliases
@@ -293,7 +325,7 @@ fi
 
 {
     cat <<EOF
-<div class="lesson-plan"><link rel="stylesheet" href="styles.css"><img id="page-background" src="background.png" alt="">
+<div class="lesson-plan"><link rel="stylesheet" href="styles.css"><img id="page-background" src="${BACKGROUND_SRC}" alt="">
 <h1 class="plan-title">${TITLE}</h1>
 
 <table class="plan-table">
